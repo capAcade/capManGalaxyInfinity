@@ -14,6 +14,9 @@ export default class CollisionHandlers {
         });
     }
     gameOver () {
+        //have to stop both because dont know which one is playing
+        this.scene.sfx.heroSongIntro.stop();
+        this.scene.sfx.heroSongLoop.stop();
         this.scene.scene.start('enterName', {});
     }
     bulletHitEnemy(bullet, enemy){
