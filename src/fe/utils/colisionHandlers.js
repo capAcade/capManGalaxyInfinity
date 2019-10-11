@@ -17,7 +17,9 @@ export default class CollisionHandlers {
         //have to stop both because dont know which one is playing
         this.scene.sfx.heroSongIntro.stop();
         this.scene.sfx.heroSongLoop.stop();
-        this.scene.scene.start('enterName', {});
+        this.scene.scene.start('gameOver', {
+            gamerData: this.scene.gamerData
+        });
     }
     bulletHitEnemy(bullet, enemy){
         if(bullet.active && enemy.active){
