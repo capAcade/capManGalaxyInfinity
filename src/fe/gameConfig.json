@@ -15,7 +15,9 @@
              "shootSpeed":300,
              "spawnOrder":"111111111111#100011110001#100011110001#111111111111#",
              "speed":100,
-             "decentSpeed":20
+             "decentSpeed":20,
+             "shootType": "HOMING",
+             "scale":0.2
           },
           { 
             "texture":"muscito",
@@ -31,7 +33,9 @@
             "shootSpeed":300,
             "spawnOrder":"111111111111#100011110001#100011110001#111111111111#",
             "speed":100,
-            "decentSpeed":20
+            "decentSpeed":20,
+            "shootType": "STRAIGTDOWN",
+            "scale":0.2
          },
          { 
             "texture":"beetle",
@@ -47,7 +51,9 @@
             "shootSpeed":300,
             "spawnOrder":"111111111111#100011110001#100011110001#111111111111#",
             "speed":100,
-            "decentSpeed":20
+            "decentSpeed":20,
+            "shootType": "TRIPLE",
+            "scale":0.2
          },
           { 
              "texture":"flagEars",
@@ -63,7 +69,9 @@
              "shootSpeed":300,
              "spawnOrder":"11110000000011110100001#10001000001010000110001#11110100010011110101001#00010010100010000100101#11110001000011110100011#",
              "speed":100,
-             "decentSpeed":20
+             "decentSpeed":20,
+             "shootType": "HOMING",
+             "scale":0.2
           }
        ],
        "wavesMultipliers":{ 

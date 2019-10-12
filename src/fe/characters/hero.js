@@ -5,7 +5,7 @@ export default class Hero extends Phaser.GameObjects.Sprite {
         super(scene, positionY, positionX, fixture);
         scene.physics.world.enable(this);
         scene.add.existing(this);
-        this.lives = 3
+        this.lives = 39999
         this.config = config
         this.scale = 0.3
         this.keys = this.config.keys;

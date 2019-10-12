@@ -23,7 +23,7 @@ export default class EnterName extends Phaser.Scene {
             this.scene.start('mainGame', {
                 gamerData: {
                     username: 'hackerman',
-                    lives: 3
+                    lives: 39999
                 },
                 gameConfig :this.gameConfig
 
