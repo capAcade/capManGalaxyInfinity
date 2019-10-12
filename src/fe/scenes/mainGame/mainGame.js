@@ -9,6 +9,8 @@ import enemyBullet from 'Assets/img/bullets/enemy-bullet.png'
 import explode from 'Assets/img/bullets/explode.png'
 import eyeUfo from 'Assets/img/characters/baddies/bug1.svg';
 import flagEars from 'Assets/img/characters/baddies/bug2.svg';
+import muscito from 'Assets/img/characters/baddies/bug3.svg';
+import beetle from 'Assets/img/characters/baddies/bug4.svg';
 import hiddenWall from 'Assets/img/utils/invisible_wall.png';
 import ColisionHandlers from 'Utils/colisionHandlers';
 
@@ -38,6 +40,8 @@ export default class MainGame extends Phaser.Scene {
         this.load.image('heroDefaultBullet', heroBullet)
         this.load.image('enemyDefaultBullet', enemyBullet)
         this.load.image('eyeUfo', eyeUfo)
+        this.load.image('muscito', muscito)
+        this.load.image('beetle', beetle)
         this.load.image('hiddenWall', hiddenWall)
         this.load.image('flagEars', flagEars)
         this.load.spritesheet('kaboom', 
