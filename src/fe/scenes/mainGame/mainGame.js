@@ -5,6 +5,7 @@ import Enemy from 'Characters/enemy';
 import SFX from 'Fx/sfx';
 import Hud from './HUD';
 import ColisionHandlers from 'Utils/colisionHandlers';
+import keys from 'Utils/keyCodeHandler';
 
 //assets
 import heroIMG from 'Assets/img/characters/heros/Jet-top.svg';
@@ -61,13 +62,6 @@ export default class MainGame extends Phaser.Scene {
         this.currentWave = 0;
         
         this.physics.world.setBoundsCollision(true, true, true, true);
-        let keys = {
-            up: this.input.keyboard.addKey('W'),
-            left: this.input.keyboard.addKey('A'),
-            down: this.input.keyboard.addKey('S'),
-            right: this.input.keyboard.addKey('D'),
-            fire: this.input.keyboard.addKey('T'),
-        }
 
         this.anims.create({
             key: 'explode',
@@ -92,7 +86,7 @@ export default class MainGame extends Phaser.Scene {
 
         let _heros = [];
         _heros.push(new Hero(this, screen.width /2, screen.height - 100, 'hero', {
-            keys: keys,
+            keys: keys.playerOne,
             fireSpeed: 500
         }));
         this.heroGroup = new Phaser.Physics.Arcade.Group(
@@ -109,7 +103,7 @@ export default class MainGame extends Phaser.Scene {
 
         this.gamerData.score = this.gamerData.score || 0; 
 
-        this.hiddenWall = new HiddenWall(this, 1, screen.height - 100, screen.width, 10);
+        this.hiddenWall = new HiddenWall(this, 1, window.innerHeight-30, window.innerWidth, 10);
 
         this.colisionHandlers = new ColisionHandlers(this);
 
@@ -129,7 +123,7 @@ export default class MainGame extends Phaser.Scene {
 
         if (this.time.now > this.timeEnemyFireCounter) {
             this.randomEnemyFire();
-            this.timeEnemyFireCounter = this.time.now + this.gameConfig.waves[1].shootSpeed;
+            this.timeEnemyFireCounter = this.time.now + this.gameConfig.waves[this.currentWave].shootSpeed;
         }
     }
     nextPhase () {
@@ -138,7 +132,13 @@ export default class MainGame extends Phaser.Scene {
         this.heroGroup.getChildren()[0].bullets.getChildren().forEach(bullet =>{
             this.heroGroup.getChildren()[0].bullets.killAndHide(bullet);
         })
+        this.enemyBullets.clear(true, true);
         this.enemyGroup.clear(true, true);
+
+        this.enemyBullets.addMultiple(this.physics.add.group({
+            defaultKey: 'enemyDefaultBullet',
+            maxSize: 60
+        }));
 
         if(this.currentWave <= this.gameConfig.waves.length -1){
             this.enemyGroup.addMultiple(this.spawnNewEnemys(this.gameConfig.waves[this.currentWave]), true)

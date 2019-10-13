@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Enemy from 'Characters/enemy';
 
 export default class CollisionHandlers {
@@ -23,7 +24,7 @@ export default class CollisionHandlers {
     }
     bulletHitEnemy(bullet, enemy){
         if(bullet.active && enemy.active){
-            this.scene.gamerData.score = this.scene.gamerData.score + 10;
+            this.scene.gamerData.score = this.scene.gamerData.score + this.scene.gameConfig.waves[this.scene.currentWave].killScore;
             this.scene.doExplosion(enemy);
             this.scene.enemyGroup.killAndHide(enemy);
             this.scene.heroGroup.getChildren()[0].bullets.killAndHide(bullet)
@@ -31,7 +32,11 @@ export default class CollisionHandlers {
     }
     enemyBulletHitPlayer(bullet, player) {
         if(bullet.active && player.active){
+
+            this.scene.cameras.cameras[0].shake(200, 0.02, true)
+
             if(this.scene.gamerData.lives > 0) {
+                
                 this.scene.gamerData.lives = this.scene.gamerData.lives - 1;
                 this.scene.enemyBullets.killAndHide(bullet);
                 this.scene.doExplosion(player);
