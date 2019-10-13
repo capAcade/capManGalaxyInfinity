@@ -69,7 +69,7 @@
             "shootSpeed":750,
             "spawnOrder":"111111111111#100011110001#100011110001#111111111111#",
             "speed":150,
-            "decentSpeed":20,
+            "decentSpeed":30,
             "shootType": "STRAIGTDOWN",
             "scale":0.25
          },
@@ -87,7 +87,7 @@
             "shootSpeed":750,
             "spawnOrder":"1111111111111#0111111111110#0001111111000#0000011100000#",
             "speed":175,
-            "decentSpeed":20,
+            "decentSpeed":30,
             "shootType": "STRAIGTDOWN",
             "scale":0.25
          },
@@ -105,7 +105,7 @@
             "shootSpeed":750,
             "spawnOrder":"111111111111#111111111111#111111111111#111111111111#",
             "speed":200,
-            "decentSpeed":20,
+            "decentSpeed":30,
             "shootType": "STRAIGTDOWN",
             "scale":0.25
          },
@@ -123,8 +123,8 @@
             "shootSpeed":600,
             "spawnOrder":"111111111111#100011110001#100011110001#111111111111#",
             "speed":200,
-            "decentSpeed":20,
-            "shootType": "TRIPLE",
+            "decentSpeed":30,
+            "shootType": "HOMING",
             "scale":0.3
          },
          { 
@@ -138,11 +138,11 @@
                "y":100
             },
             "killScore":21,
-            "shootSpeed":600,
+            "shootSpeed":800,
             "spawnOrder":"1111111111111#0111111111110#0001111111000#0000011100000#",
             "speed":225,
-            "decentSpeed":20,
-            "shootType": "TRIPLE",
+            "decentSpeed":30,
+            "shootType": "HOMING",
             "scale":0.3
          },
          { 
@@ -156,11 +156,11 @@
                "y":100
             },
             "killScore":22,
-            "shootSpeed":600,
+            "shootSpeed":800,
             "spawnOrder":"111111111111#111111111111#111111111111#111111111111#",
             "speed":250,
-            "decentSpeed":20,
-            "shootType": "TRIPLE",
+            "decentSpeed":30,
+            "shootType": "HOMING",
             "scale":0.3
          },
           { 
