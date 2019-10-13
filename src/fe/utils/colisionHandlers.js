@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import Enemy from 'Characters/enemy';
 
 export default class CollisionHandlers {
