@@ -100,6 +100,9 @@ export default class MainGame extends Phaser.Scene {
             this.spawnNewEnemys(this.gameConfig.waves[0])
         );
         this.sfx.heroSongIntro.play();
+        this.sfx.heroSongIntro.once('complete', ()=> {
+            this.sfx.heroSongLoop.play();
+        })
 
         this.gamerData.score = this.gamerData.score || 0; 
 

@@ -26,8 +26,17 @@ export default class SFX {
             loop: false,
             delay: 0
         };
+        let themeSongConfigLoop = {
+            mute: false,
+            volume: 1,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: true,
+            delay: 0
+        };
         this.heroSongIntro = this.scene.sound.add('heroSongWithIntro', themeSongConfig);
-        this.heroSongLoop = this.scene.sound.add('heroSongLoop', themeSongConfig);
+        this.heroSongLoop = this.scene.sound.add('heroSongLoop', themeSongConfigLoop);
 
         this.shot = this.scene.sound.add('shot', themeSongConfig);
         this.impact = this.scene.sound.add('impact', themeSongConfig);
