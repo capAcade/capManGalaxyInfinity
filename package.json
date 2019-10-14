@@ -8,6 +8,7 @@
     "test": "nine",
     "start:dev": "webpack-dev-server",
     "server": "node ./src/ba/server.js",
+    "build:fe": "webpack --config webpack.config.js",
     "build:ba": "webpack --config webpack.config.server.js",
     "watch:ba": "webpack --config webpack.config.server.js --watch"
   },
