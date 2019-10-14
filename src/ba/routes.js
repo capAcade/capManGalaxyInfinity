@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+import defaultGameConfig from './assets/gameConfig.json'
 
 // Get config
 router.get('/config', function (req, res) {
-  res.json({});
+  res.json(defaultGameConfig);
 });
 
 // Save config
 
-module.exports = router;
+export default router;

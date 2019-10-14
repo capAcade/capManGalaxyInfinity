@@ -1,7 +1,6 @@
 
 import Phaser from 'phaser';
 import introBG from 'Assets/img/utils/bg/Intro_Screen_background.png'
-import gamConfigJson from '../../gameConfig.json'
 import keys from 'Utils/keyCodeHandler';
 
 export default class EnterName extends Phaser.Scene {
@@ -10,7 +9,7 @@ export default class EnterName extends Phaser.Scene {
     }
     preload() {
         this.load.image('introBG', introBG);
-        this.load.json('gameConfig', gamConfigJson)
+        this.load.json('gameConfig', '/config');
     }
     create() {
         this.gameConfig = this.cache.json.get('gameConfig').gameConfig;
