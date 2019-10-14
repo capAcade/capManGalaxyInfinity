@@ -14,11 +14,16 @@ export default class CollisionHandlers {
         });
     }
     gameOver () {
-        this.scene.scene.start('enterName', {});
+        //have to stop both because dont know which one is playing
+        this.scene.sfx.heroSongIntro.stop();
+        this.scene.sfx.heroSongLoop.stop();
+        this.scene.scene.start('gameOver', {
+            gamerData: this.scene.gamerData
+        });
     }
     bulletHitEnemy(bullet, enemy){
         if(bullet.active && enemy.active){
-            this.scene.gamerData.score = this.scene.gamerData.score + 10;
+            this.scene.gamerData.score = this.scene.gamerData.score + this.scene.gameConfig.waves[this.scene.currentWave].killScore;
             this.scene.doExplosion(enemy);
             this.scene.enemyGroup.killAndHide(enemy);
             this.scene.heroGroup.getChildren()[0].bullets.killAndHide(bullet)
@@ -26,7 +31,11 @@ export default class CollisionHandlers {
     }
     enemyBulletHitPlayer(bullet, player) {
         if(bullet.active && player.active){
+
+            this.scene.cameras.cameras[0].shake(200, 0.02, true)
+
             if(this.scene.gamerData.lives > 0) {
+                
                 this.scene.gamerData.lives = this.scene.gamerData.lives - 1;
                 this.scene.enemyBullets.killAndHide(bullet);
                 this.scene.doExplosion(player);

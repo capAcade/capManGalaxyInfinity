@@ -8,14 +8,17 @@ export default class Hero extends Phaser.GameObjects.Sprite {
         this.lives = 3
         this.config = config
         this.scale = 0.3
-        this.keys = this.config.keys;
+        this.keys = {
+            left: scene.input.keyboard.addKey(this.config.keys.left),
+            right: scene.input.keyboard.addKey(this.config.keys.right),
+            fire: scene.input.keyboard.addKey(this.config.keys.green)
+        };
         this.body.setCollideWorldBounds(true);
         this.bullets = scene.physics.add.group({
             defaultKey: 'heroDefaultBullet',
             maxSize: 10
         });
         this.fireTimeStamp = 0;
-
     }
     cleanBullets() {
         this.bullets.children.each(function(b) {
@@ -52,5 +55,4 @@ export default class Hero extends Phaser.GameObjects.Sprite {
             bullet.body.velocity.y = -200;
         }
     }
-
 }

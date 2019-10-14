@@ -1,17 +1,8 @@
 
 import Phaser from 'phaser';
 import introBG from 'Assets/img/utils/bg/Intro_Screen_background.png'
-
-const spawnOrder = '111111111111#'+
-                   '100011110001#'+
-                   '100011110001#'+
-                   '111111111111#';
-
-const spawnOrderTwo = '11110000000011110100001#'+
-                      '10001000001010000110001#'+
-                      '11110100010011110101001#'+
-                      '00010010100010000100101#'+
-                      '11110001000011110100011#';
+import gamConfigJson from '../../gameConfig.json'
+import keys from 'Utils/keyCodeHandler';
 
 export default class EnterName extends Phaser.Scene {
     constructor() {
@@ -19,44 +10,25 @@ export default class EnterName extends Phaser.Scene {
     }
     preload() {
         this.load.image('introBG', introBG);
-
+        this.load.json('gameConfig', gamConfigJson)
     }
     create() {
-        this.bg = this.add.image(0, 0, 'introBG');
-        this.key = this.input.keyboard.addKey('W')
-
+        this.gameConfig = this.cache.json.get('gameConfig').gameConfig;
+        this.bg = this.add.image(window.innerWidth/2, window.innerHeight/2, 'introBG');
+        this.bg.setDisplaySize(window.innerWidth, window.innerHeight);
+        this.key = this.input.keyboard.addKey(keys.playerOne.green);
+        let text = this.add.text(window.innerWidth/2, window.innerHeight/2, `Use the green button to shoot && Joystick to move \nTo start hit the green button`, { fontFamily: '"Roboto Condensed"', fontSize: '40px' });
+        text.setOrigin(0.5);
     }
     update () {
         if (this.key.isDown) {
+            this.cameras.default.shake();
             this.scene.start('mainGame', {
                 gamerData: {
                     username: 'hackerman',
                     lives: 3
                 },
-                gameConfig: {
-                    waves: [
-                        {
-                            texture:'eyeUfo',
-                            startingPosition:{x:100, y:100},
-                            spacer: {x:100, y:100},
-                            killScore: 10,
-                            shootSpeed: 300,
-                            spawnOrder: spawnOrder,
-                            speed: 100,
-                            decentSpeed: 20
-                        },
-                        {
-                            texture:'flagEars',
-                            startingPosition:{x:100, y:100},
-                            spacer: {x:50, y:100},
-                            killScore: 11,
-                            shootSpeed: 300,
-                            spawnOrder: spawnOrderTwo,
-                            speed: 100,
-                            decentSpeed: 20
-                        }
-                    ]
-                }
+                gameConfig :this.gameConfig
             });
         }
 
