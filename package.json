@@ -4,6 +4,7 @@
   "description": "capman galaxy infinity mode",
   "main": "index.js",
   "scripts": {
+    "lol": "webpack --config webpack.config.js",
     "test": "nine",
     "start:dev": "webpack-dev-server",
     "server": "node ./src/ba/server.js",
