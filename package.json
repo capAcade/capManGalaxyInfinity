@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "nine",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "server": "node ./src/ba/server.js",
+    "build:ba": "webpack --config webpack.config.server.js",
+    "watch:ba": "webpack --config webpack.config.server.js --watch"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,9 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "nodemon-webpack-plugin": "^4.1.1",
     "phaser": "^3.18.1"
   }
 }
