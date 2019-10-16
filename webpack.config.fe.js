@@ -1,9 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const {
+  NODE_ENV = 'production',
+} = process.env;
 
 module.exports = {
   mode: 'development',
   entry: './src/fe/main.js',
+  watch: NODE_ENV === 'development',
   output: {
     path: path.resolve(__dirname, 'dist/public'),
     filename: 'main.js'

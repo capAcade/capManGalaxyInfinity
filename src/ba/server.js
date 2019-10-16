@@ -5,7 +5,7 @@ import sockets from './sockets';
 import routes from './routes';
 
 const serverConfig = {
-  port: 8080,
+  port: 8081,
   static: resolve(__dirname, 'public'),
 };
 
