@@ -8,7 +8,7 @@
     "test": "nine",
     "prestart": "npm run build",
     "start": "node ./dist/server.js",
-    "start:dev": "NODE_ENV=development webpack --config webpack.config.js",
+    "start:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build:fe": "webpack --config webpack.config.js",
     "build:ba": "webpack --config webpack.config.server.js",
     "build:docs": "webpack --config webpack.config.docs.js"
